@@ -1,0 +1,76 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+    -webkit-touch-callout: none;
+    -webkit-text-size-adjust: none;
+    -webkit-user-select: none;
+    background-color:#E4E4E4;
+    background-image:linear-gradient(to bottom, #A7A7A7 0%, #E4E4E4 51%);
+    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    font-size:12px;
+    height:100vh;
+    margin:0px;
+    padding:0px;
+    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+    width:100%;
+}
+
+.contact-detail-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.contact-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    margin: 20px auto;
+    display: block;
+    object-fit: cover;
+}
+
+.contact-info {
+    text-align: left;
+    margin: 20px 0;
+}
+
+.contact-actions {
+    margin-top: 30px;
+}
+
+.contact-actions a {
+    margin-bottom: 10px;
+}
+
+.contact-photo-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#changePhoto {
+    margin-top: 10px;
+}
+
+.form-fields {
+    margin-top: 20px;
+}
