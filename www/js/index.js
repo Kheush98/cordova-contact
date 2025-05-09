@@ -12,11 +12,6 @@ function setupEventHandlers() {  $(document).on('click', '#saveContactButton', f
     const name = $('#contactNameInput').val();
     const phone = $('#contactPhoneInput').val();
     const email = $('#contactEmailInput').val();
-
-    // alert(name);
-    // return;
-
-    // console.log(`Name: ${name}, Phone: ${phone}, Email: ${email}`);
     
     if (!name) {
       alert('Le nom est obligatoire');
@@ -34,7 +29,6 @@ function setupEventHandlers() {  $(document).on('click', '#saveContactButton', f
         pref: true
       }];
     }
-
 
     if (email) {
       contactData.emails = [{
@@ -187,23 +181,19 @@ function createContact(contactData) {
   try {
     const contact = navigator.contacts.create();
     
-    // Création et configuration du nom en utilisant ContactName
     const name = new ContactName();
     const nameParts = contactData.displayName.split(' ');
     name.givenName = nameParts[0] || '';
     name.familyName = nameParts.slice(1).join(' ') || '';
     name.formatted = contactData.displayName;
     
-    // Assigner les propriétés au contact
     contact.name = name;
     contact.displayName = contactData.displayName;
 
-    // Ajout du numéro de téléphone
     if (contactData.phoneNumbers && contactData.phoneNumbers.length > 0) {
       contact.phoneNumbers = contactData.phoneNumbers;
     }
 
-    // Ajout de l'email
     if (contactData.emails && contactData.emails.length > 0) {
       contact.emails = contactData.emails;
     }
@@ -211,10 +201,8 @@ function createContact(contactData) {
     contact.save(
       () => {
         alert('Contact créé avec Succès!');
-        // Recharger les contacts et retourner à la page d'accueil
         loadContacts();
         $.mobile.changePage('#homePage');
-        // Réinitialiser le formulaire
         $('#addContactForm')[0].reset();
       },
       (error) => {
@@ -237,10 +225,10 @@ function updateContact(contactId, updatedData) {
   navigator.contacts.find(['id'], (contacts) => {
     if (contacts.length > 0) {
       let contact = contacts[0];
-      // Mettre à jour les propriétés du contact
+
       if (updatedData.displayName) contact.displayName = updatedData.displayName;
       if (updatedData.name) contact.name = updatedData.name;
-      // Mettre à jour les numéros de téléphone
+
       if (updatedData.phoneNumbers && updatedData.phoneNumbers.length > 0) {
         if (!contact.phoneNumbers || contact.phoneNumbers.length === 0) {
           contact.phoneNumbers = updatedData.phoneNumbers;
@@ -288,7 +276,6 @@ function deleteContact(contactId) {
       contact.remove(
         () => {
           alert('Contact supprimé avec succès!');
-          // Recharger les contacts et retourner à la page d'accueil
           loadContacts();
           $.mobile.changePage('#homePage');
         },
